@@ -17,7 +17,7 @@ namespace LibTests
         }
 
         [TestMethod]
-        public void RGBToHex_ReturnsProperHexCode_WhenNotAllIsTheSame()
+        public void RGBToHex_ReturnsFullHexCode_WhenNotAllValuesAreTheSame()
         {
             c = new ConversionHelper();
 
