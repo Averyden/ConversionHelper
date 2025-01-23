@@ -121,7 +121,10 @@
 
             return $"({(int)red}, {(int)green}, {(int)blue})";
         }
-
+        /* 
+         * TODO: 
+         * Add a RGB to HSL converter so its like the hex one where it goes both ways
+         */
 
     }
 }
