@@ -126,5 +126,18 @@
          * Add a RGB to HSL converter so its like the hex one where it goes both ways
          */
 
+        public string ToBase64(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new ArgumentNullException(nameof(input), "Input cannot be null or empty.");
+            }
+
+            byte[] bytes = System.Text.Encoding.UTF8.GetBytes(input);
+            return Convert.ToBase64String(bytes);
+        }
+
+
+
     }
 }
