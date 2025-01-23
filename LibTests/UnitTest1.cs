@@ -238,5 +238,42 @@ namespace LibTests
             c.ToBase64(null);
         }
 
+
+        // FromBase64 tests
+
+        [TestMethod]
+        public void FromBase64ReturnsCorrectStringForValidBase64()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("Hello world", c.FromBase64("SGVsbG8gd29ybGQ="));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void FromBase64ReturnsExceptionFromEmptyBase64()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("", c.FromBase64(""));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void FromBase64ThrowsExceptionForNullBase64()
+        {
+            c = new ConversionHelper();
+
+            c.FromBase64(null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void FromBase64ThrowsExceptionForInvalidBase64()
+        {
+            c = new ConversionHelper();
+
+            c.FromBase64("InvalidBase64$String");
+        }
     }
 }
