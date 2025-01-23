@@ -1,4 +1,4 @@
-﻿namespace ConversionHelper
+﻿namespace ConversionHelperLibrary
 {
     /* 
          Converto is the class name for the conversion helper library
