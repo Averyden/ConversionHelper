@@ -13,7 +13,7 @@ namespace LibTests
         {
             c = new Converto();
 
-            Assert.AreEqual("FFF", c.RGBToHex(255, 255, 255));
+            Assert.AreEqual("#FFF", c.RGBToHex(255, 255, 255));
         }
     }
 }
