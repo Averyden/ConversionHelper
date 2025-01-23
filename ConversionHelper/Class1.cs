@@ -8,8 +8,21 @@ namespace ConversionHelperLibrary
          */
     public class ConversionHelper
     {
+        // PRIVATE METHODS TO HELP WITH INTERNAL LOGIC INSTEAD OF MAKING A METHOD BE DISGUSTINGLY UGLY.
+
+        private bool validRGBInput(params int[] nums)
+        {
+            return nums.All(value => value >= 0 && value <= 255);
+        }
+
+
+
+        // PUBLIC METHODS THAT SHOULD BE ACCESSIBLE FOR USAGE OF LIBRARY
+
         public string RGBToHex(int red, int green, int blue) 
         {
+
+
             string output = "";
             string checkString = $"{red:X2}{green:X2}{blue:X2}";
 
