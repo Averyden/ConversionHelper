@@ -115,7 +115,7 @@
             green = Math.Min(255, Math.Max(0, green));
             blue = Math.Min(255, Math.Max(0, blue));
 
-            return $"({red}, {green}, {blue})";
+            return $"({(int)red}, {(int)green}, {(int)blue})";
         }
 
 
