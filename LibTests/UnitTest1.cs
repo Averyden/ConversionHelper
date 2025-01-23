@@ -7,7 +7,7 @@ namespace LibTests
     {
         ConversionHelper c;
 
-
+        // RGB to hex tests
         [TestMethod]
         public void RGBToHex_ActuallyReturnsTheProperHexCode_ForWhenAllValuesAre255()
         {
@@ -32,5 +32,35 @@ namespace LibTests
 
             c.RGBToHex(275, 255, 255);
         }
+
+        // Hex To RGB tests
+
+        [TestMethod]
+        public void HexToRGBReturnsMaxedValuesWhenFFFIsEntered()
+        {
+            c = new ConversionHelper();
+
+        }
+
+        [TestMethod] 
+        public void HexToRGBIsAbleToHandleEnteredHexValuesWithoutTheHashtagIntheFront()
+        {
+            c = new ConversionHelper();
+        }
+
+        [TestMethod]
+        public void HexToRGBCanUnderstandRGBFormat()
+        {
+            c = new ConversionHelper();
+        }
+
+        [TestMethod]
+        public void HexToRGBCanUnderstandRRGGBBFormat()
+        {
+            c = new ConversionHelper();
+        }
+
+
+
     }
 }
