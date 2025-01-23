@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace ConversionHelperLibrary
+﻿namespace ConversionHelperLibrary
 {
     /* 
          Converto is the class name for the conversion helper library
@@ -46,6 +44,11 @@ namespace ConversionHelperLibrary
             if (string.IsNullOrEmpty(hexCode))
             {
                 throw new ArgumentNullException("Hex code cannot be null or empty.");
+            }
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(hexCode, @"^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"))
+            {
+                throw new FormatException("Hex code contains invalid characters. Only 0-9 and A-F (case insensitive) are supported in hex codes.");
             }
 
             if (hexCode[0] != '#')
