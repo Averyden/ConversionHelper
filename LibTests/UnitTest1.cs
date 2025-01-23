@@ -40,24 +40,32 @@ namespace LibTests
         {
             c = new ConversionHelper();
 
+            Assert.AreEqual("(255, 255, 255)", c.HexToRGB("#FFF"));
+
         }
 
         [TestMethod] 
         public void HexToRGBIsAbleToHandleEnteredHexValuesWithoutTheHashtagIntheFront()
         {
             c = new ConversionHelper();
+
+            Assert.AreEqual("(255, 255, 255)", c.HexToRGB("FFF"));
         }
 
         [TestMethod]
         public void HexToRGBCanUnderstandRGBFormat()
         {
             c = new ConversionHelper();
+
+            Assert.AreEqual("(170, 204, 255)", c.HexToRGB("#AACCFF"));
         }
 
         [TestMethod]
         public void HexToRGBCanUnderstandRRGGBBFormat()
         {
             c = new ConversionHelper();
+
+            Assert.AreEqual("(69, 117, 78)", c.HexToRGB("45754e"));
         }
 
 
