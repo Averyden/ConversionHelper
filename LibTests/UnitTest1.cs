@@ -145,7 +145,7 @@ namespace LibTests
         {
             c = new ConversionHelper();
 
-            Assert.AreEqual("(0, 128, 128)", c.HSLToRGB(180, 0.5, 0.5));
+            Assert.AreEqual("(64, 191, 191)", c.HSLToRGB(180, 0.5, 0.5));
         }
 
         [TestMethod]
@@ -153,7 +153,7 @@ namespace LibTests
         {
             c = new ConversionHelper();
 
-            Assert.AreEqual("(255, 128, 0)", c.HSLToRGB(30, 0.5, 0.5));
+            Assert.AreEqual("(191, 127, 64)", c.HSLToRGB(30, 0.5, 0.5));
         }
 
         [TestMethod]
