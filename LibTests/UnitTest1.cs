@@ -21,7 +21,7 @@ namespace LibTests
         {
             c = new ConversionHelper();
 
-            Assert.AreEqual("#00b621", c.RGBToHex(0, 182, 33));
+            Assert.AreEqual("#00B621", c.RGBToHex(0, 182, 33));
         }
     }
 }
