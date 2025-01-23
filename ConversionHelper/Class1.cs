@@ -111,9 +111,9 @@
             green = (green + m) * 255;
             blue = (blue + m) * 255;
 
-            red = (red / 255 >= 0.7) ? Math.Ceiling(red) : red;
-            green = (green / 255 >= 0.7) ? Math.Ceiling(green) : green;
-            blue = (blue / 255 >= 0.7) ? Math.Ceiling(blue) : blue;
+            red = (red % 1 >= 0.7) ? Math.Ceiling(red) : red;
+            green = (green % 1 >= 0.7) ? Math.Ceiling(green) : green;
+            blue = (blue % 1 >= 0.7) ? Math.Ceiling(blue) : blue;
 
             red = Math.Min(255, Math.Max(0, red));
             green = Math.Min(255, Math.Max(0, green));
