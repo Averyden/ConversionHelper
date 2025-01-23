@@ -23,5 +23,14 @@ namespace LibTests
 
             Assert.AreEqual("#00B621", c.RGBToHex(0, 182, 33));
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RGBToHex_ReturnsAppropriateExceptionForInvalidValues()
+        {
+            c = new ConversionHelper();
+
+            c.RGBToHex(275, 255, 255);
+        }
     }
 }
