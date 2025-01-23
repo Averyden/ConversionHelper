@@ -15,5 +15,13 @@ namespace LibTests
 
             Assert.AreEqual("#FFF", c.RGBToHex(255, 255, 255));
         }
+
+        [TestMethod]
+        public void RGBToHex_ReturnsProperHexCode_WhenNotAllIsTheSame()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("#00b621", c.RGBToHex(0, 182, 33));
+        }
     }
 }
