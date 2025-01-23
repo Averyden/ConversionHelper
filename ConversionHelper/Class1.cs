@@ -1,4 +1,6 @@
-﻿namespace ConversionHelperLibrary
+﻿using System.Drawing;
+
+namespace ConversionHelperLibrary
 {
     /* 
          Converto is the class name for the conversion helper library
@@ -25,7 +27,16 @@
 
         public string HexToRGB(string hexCode)
         {
+            if (hexCode[0] != '#')
+            {
+                hexCode = $"#{hexCode}"; // Yes i am petty by doing this, but fuck you!
+            }
+
+            /* TODO:
+             * Find a way to reverse the process, WITHOUT using aspose. I dont want to install shit on my machine
+              */
             string output = "";
+
             return output;
         }
 
