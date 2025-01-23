@@ -113,5 +113,102 @@ namespace LibTests
             c.HexToRGB("#UUU");
         }
 
+
+        // HSL to RGB tests
+
+        [TestMethod]
+        public void HSLToRGBReturnsCorrectRGBWhenHueIs0AndFullSaturation()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("(255, 0, 0)", c.HSLToRGB(0, 1, 0.5));
+        }
+
+        [TestMethod]
+        public void HSLToRGBReturnsCorrectRGBWhenHueIs120AndFullSaturation()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("(0, 255, 0)", c.HSLToRGB(120, 1, 0.5));
+        }
+
+        [TestMethod]
+        public void HSLToRGBReturnsCorrectRGBWhenHueIs240AndFullSaturation()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("(0, 0, 255)", c.HSLToRGB(240, 1, 0.5));
+        }
+
+        [TestMethod]
+        public void HSLToRGBReturnsCorrectRGBWhenHueIs180AndHalfSaturation()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("(64, 191, 191)", c.HSLToRGB(180, 0.5, 0.5));
+        }
+
+        [TestMethod]
+        public void HSLToRGBReturnsCorrectRGBWhenHueIs30AndHalfSaturation()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("(191, 127, 64)", c.HSLToRGB(30, 0.5, 0.5));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void HSLToRGBThrowsExceptionWhenHueIsNegative()
+        {
+            c = new ConversionHelper();
+
+            c.HSLToRGB(-10, 1, 0.5);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void HSLToRGBThrowsExceptionWhenHueIsGreaterThan360()
+        {
+            c = new ConversionHelper();
+
+            c.HSLToRGB(370, 1, 0.5);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void HSLToRGBThrowsExceptionWhenSaturationIsLessThanZero()
+        {
+            c = new ConversionHelper();
+
+            c.HSLToRGB(180, -0.1, 0.5);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void HSLToRGBThrowsExceptionWhenSaturationIsGreaterThanOne()
+        {
+            c = new ConversionHelper();
+
+            c.HSLToRGB(180, 1.5, 0.5);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void HSLToRGBThrowsExceptionWhenLightnessIsLessThanZero()
+        {
+            c = new ConversionHelper();
+
+            c.HSLToRGB(180, 1, -0.1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void HSLToRGBThrowsExceptionWhenLightnessIsGreaterThanOne()
+        {
+            c = new ConversionHelper();
+
+            c.HSLToRGB(180, 1, 1.1);
+        }
+
     }
 }

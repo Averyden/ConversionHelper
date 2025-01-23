@@ -13,6 +13,12 @@
             return nums.All(value => value >= 0 && value <= 255);
         }
 
+        private bool validHSLInput(double hue, double saturation, double lightness)
+        {
+            return hue >= 0 && hue <= 360 &&
+                   saturation >= 0 && saturation <= 1 &&
+                   lightness >= 0 && lightness <= 1;
+        }
 
 
         // PUBLIC METHODS THAT SHOULD BE ACCESSIBLE FOR USAGE OF LIBRARY
@@ -80,6 +86,45 @@
 
             return $"({red}, {green}, {blue})";
         }
+
+        public string HSLToRGB(double hue, double saturation, double lightness)
+        {
+            if (!validHSLInput(hue,saturation, lightness))
+            {
+                throw new ArgumentOutOfRangeException("Invalid HSL values. \nMake sure the hue value is between 0 and 360, meanwhile the saturation and lightness should both be from 0 to 1.");
+            }
+
+            double c = (1 - Math.Abs(2 * lightness - 1)) * saturation;
+            double x = c * (1 - Math.Abs((hue / 60) % 2 - 1));
+            double m = lightness - c / 2;
+
+            double red = 0, green = 0, blue = 0;
+
+            if (hue >= 0 && hue < 60) { red = c; green = x; blue = 0; }
+            else if (hue >= 60 && hue < 120) { red = x; green = c; blue = 0; }
+            else if (hue >= 120 && hue < 180) { red = 0; green = c; blue = x; }
+            else if (hue >= 180 && hue < 240) { red = 0; green = x; blue = c; }
+            else if (hue >= 240 && hue < 300) { red = x; green = 0; blue = c; }
+            else { red = c; green = 0; blue = x; }
+
+            red = (red + m) * 255;
+            green = (green + m) * 255;
+            blue = (blue + m) * 255;
+
+            red = (red % 1 >= 0.7) ? Math.Ceiling(red) : red;
+            green = (green % 1 >= 0.7) ? Math.Ceiling(green) : green;
+            blue = (blue % 1 >= 0.7) ? Math.Ceiling(blue) : blue;
+
+            red = Math.Min(255, Math.Max(0, red));
+            green = Math.Min(255, Math.Max(0, green));
+            blue = Math.Min(255, Math.Max(0, blue));
+
+            return $"({(int)red}, {(int)green}, {(int)blue})";
+        }
+        /* 
+         * TODO: 
+         * Add a RGB to HSL converter so its like the hex one where it goes both ways
+         */
 
     }
 }
