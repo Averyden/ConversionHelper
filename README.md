@@ -2,7 +2,7 @@
 A simple class library built in C# to help with conversion of values (RGB to hex, encoding in base64, and so on) ( •̀ ω •́ )✧
 
 
-Mainly for practise, but also prefventing future headaches if i ever had the trouble.
+Mainly for practise, but also preventing future headaches if i ever had the trouble.
 
 # Current features
 ConversionHelper has the following features so far:
