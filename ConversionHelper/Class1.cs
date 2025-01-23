@@ -6,8 +6,18 @@
          */
     public class Converto
     {
-    
+        public string RGBToHex(int red, int green, int blue)
+        {
+            
+            string output = "";
+            return output;
+        }
 
+        public string HexToRGB(string hexCode)
+        {
+            string output = "";
+            return output;
+        }
 
     }
 }
