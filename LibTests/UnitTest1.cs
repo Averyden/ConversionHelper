@@ -210,5 +210,70 @@ namespace LibTests
             c.HSLToRGB(180, 1, 1.1);
         }
 
+        // ToBase64 tests
+
+        [TestMethod]
+        public void ToBase64ReturnsCorrectBase64ForNormalString()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("SGVsbG8gd29ybGQ=", c.ToBase64("Hello world"));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ToBase64ReturnsExceptionFromEmptyString()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("", c.ToBase64(""));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ToBase64ThrowsExceptionForNullString()
+        {
+            c = new ConversionHelper();
+
+            c.ToBase64(null);
+        }
+
+
+        // FromBase64 tests
+
+        [TestMethod]
+        public void FromBase64ReturnsCorrectStringForValidBase64()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("Hello world", c.FromBase64("SGVsbG8gd29ybGQ="));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void FromBase64ReturnsExceptionFromEmptyBase64()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("", c.FromBase64(""));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void FromBase64ThrowsExceptionForNullBase64()
+        {
+            c = new ConversionHelper();
+
+            c.FromBase64(null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(FormatException))]
+        public void FromBase64ThrowsExceptionForInvalidBase64()
+        {
+            c = new ConversionHelper();
+
+            c.FromBase64("InvalidBase64$String");
+        }
     }
 }
