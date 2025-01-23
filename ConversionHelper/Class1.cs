@@ -21,7 +21,10 @@ namespace ConversionHelperLibrary
 
         public string RGBToHex(int red, int green, int blue) 
         {
-
+            if (!validRGBInput(red, green, blue))
+            {
+                throw new ArgumentOutOfRangeException("RGB values must be positive and must not exceed 255");
+            }
 
             string output = "";
             string checkString = $"{red:X2}{green:X2}{blue:X2}";
