@@ -6,10 +6,17 @@
          */
     public class ConversionHelper
     {
-        public string RGBToHex(int red, int green, int blue)
+        public string RGBToHex(int red, int green, int blue) 
         {
+            string output = "";
+            string checkString = $"{red:X2}{green:X2}{blue:X2}";
 
-            string output = $"{red:X2}{green:X2}{blue:X2}";
+            if (checkString == String.Concat(Enumerable.Repeat(checkString[0], 6)))
+            {
+                output = String.Concat(Enumerable.Repeat(checkString[0], 3));
+            }
+
+
             return $"#{output}";
         }
 
