@@ -14,6 +14,9 @@
             if (checkString == String.Concat(Enumerable.Repeat(checkString[0], 6)))
             {
                 output = String.Concat(Enumerable.Repeat(checkString[0], 3));
+            } else
+            {
+                output = checkString;
             }
 
 
