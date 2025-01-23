@@ -43,10 +43,21 @@ namespace ConversionHelperLibrary
 
         public string HexToRGB(string hexCode)
         {
+            if (string.IsNullOrEmpty(hexCode))
+            {
+                throw new ArgumentNullException("Hex code cannot be null or empty.");
+            }
+
             if (hexCode[0] != '#')
             {
                 hexCode = $"#{hexCode}"; // Yes i am petty by doing this, but fuck you!
             }
+
+            if (hexCode.Length != 4 || hexCode.Length != 7)
+            {
+                throw new FormatException("Hex code must be in #RGB or #RRGGBB format, no inbetween.");
+            }
+
 
             /* TODO:
              * Find a way to reverse the process, WITHOUT using aspose. I dont want to install shit on my machine
