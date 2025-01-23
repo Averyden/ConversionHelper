@@ -121,7 +121,7 @@ namespace LibTests
         {
             c = new ConversionHelper();
 
-            Assert.AreEqual("(1, 0, 0)", c.HSLToRGB(0, 1, 0.5));
+            Assert.AreEqual("(255, 0, 0)", c.HSLToRGB(0, 1, 0.5));
         }
 
         [TestMethod]
@@ -129,7 +129,7 @@ namespace LibTests
         {
             c = new ConversionHelper();
 
-            Assert.AreEqual("(0, 1, 0)", c.HSLToRGB(120, 1, 0.5));
+            Assert.AreEqual("(0, 255, 0)", c.HSLToRGB(120, 1, 0.5));
         }
 
         [TestMethod]
@@ -137,7 +137,7 @@ namespace LibTests
         {
             c = new ConversionHelper();
 
-            Assert.AreEqual("(0, 0, 1)", c.HSLToRGB(240, 1, 0.5));
+            Assert.AreEqual("(0, 0, 255)", c.HSLToRGB(240, 1, 0.5));
         }
 
         [TestMethod]
@@ -145,7 +145,7 @@ namespace LibTests
         {
             c = new ConversionHelper();
 
-            Assert.AreEqual("(0, 0.5, 0.5)", c.HSLToRGB(180, 0.5, 0.5));
+            Assert.AreEqual("(0, 128, 128)", c.HSLToRGB(180, 0.5, 0.5));
         }
 
         [TestMethod]
@@ -153,7 +153,7 @@ namespace LibTests
         {
             c = new ConversionHelper();
 
-            Assert.AreEqual("(1, 0.5, 0)", c.HSLToRGB(30, 0.5, 0.5));
+            Assert.AreEqual("(255, 128, 0)", c.HSLToRGB(30, 0.5, 0.5));
         }
 
         [TestMethod]
