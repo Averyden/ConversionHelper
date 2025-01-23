@@ -8,9 +8,8 @@
     {
         public string RGBToHex(int red, int green, int blue)
         {
-            
-            string output = "";
-            return output;
+            string output = $"{red:X2}{green:X2}{blue:X2}";
+            return $"#{output}";
         }
 
         public string HexToRGB(string hexCode)
