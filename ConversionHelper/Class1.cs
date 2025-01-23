@@ -137,7 +137,7 @@
             return Convert.ToBase64String(bytes);
         }
 
-        public string DecodeBase64(string input) 
+        public string FromBase64(string input) 
         {
             
         }
