@@ -210,5 +210,33 @@ namespace LibTests
             c.HSLToRGB(180, 1, 1.1);
         }
 
+        // ToBase64 tests
+
+        [TestMethod]
+        public void ToBase64ReturnsCorrectBase64ForNormalString()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("SGVsbG8gd29ybGQ=", c.ToBase64("Hello world"));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ToBase64ReturnsExceptionFromEmptyString()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("", c.ToBase64(""));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ToBase64ThrowsExceptionForNullString()
+        {
+            c = new ConversionHelper();
+
+            c.ToBase64(null);
+        }
+
     }
 }
