@@ -107,9 +107,9 @@
             else if (hue >= 240 && hue < 300) { red = x; green = 0; blue = c; }
             else { red = c; green = 0; blue = x; }
 
-            red = (red + m) * 255;
-            green = (green + m) * 255;
-            blue = (blue + m) * 255;
+            red = (red / 255 >= 0.7) ? Math.Ceiling(red) : red;
+            green = (green / 255 >= 0.7) ? Math.Ceiling(green) : green;
+            blue = (blue / 255 >= 0.7) ? Math.Ceiling(blue) : blue;
 
             red = Math.Min(255, Math.Max(0, red));
             green = Math.Min(255, Math.Max(0, green));
