@@ -58,11 +58,21 @@ namespace ConversionHelperLibrary
                 throw new FormatException("Hex code must be in #RGB or #RRGGBB format, no inbetween.");
             }
 
+            int red, green, blue;
 
-            /* TODO:
-             * Find a way to reverse the process, WITHOUT using aspose. I dont want to install shit on my machine
-              */
-            string output = "";
+            if (hexCode.Length == 4)
+            {
+                red = Convert.ToInt32($"{hexCode[1]}{hexCode[1]}", 16);
+                green = Convert.ToInt32($"{hexCode[2]}{hexCode[2]}", 16);
+                blue = Convert.ToInt32($"{hexCode[3]}{hexCode[3]}", 16);
+            } else
+            {
+                red = Convert.ToInt32($"{hexCode[1]}{hexCode[2]}", 16);
+                green = Convert.ToInt32($"{hexCode[3]}{hexCode[4]}", 16);
+                blue = Convert.ToInt32($"{hexCode[5]}{hexCode[6]}", 16);
+            }
+
+            string output = $"({red}, {green}, {blue})";
 
             return output;
         }
