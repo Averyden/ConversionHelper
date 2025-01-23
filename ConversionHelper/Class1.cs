@@ -107,6 +107,14 @@
             else if (hue >= 240 && hue < 300) { red = x; green = 0; blue = c; }
             else { red = c; green = 0; blue = x; }
 
+            red = (red + m) * 255;
+            green = (green + m) * 255;
+            blue = (blue + m) * 255;
+
+            red = Math.Min(255, Math.Max(0, red));
+            green = Math.Min(255, Math.Max(0, green));
+            blue = Math.Min(255, Math.Max(0, blue));
+
             return $"({red}, {green}, {blue})";
         }
 
