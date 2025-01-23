@@ -1,17 +1,17 @@
-using ConversionHelper;
+using ConversionHelperLibrary;
 
 namespace LibTests
 {
     [TestClass]
     public class ConvertoTest
     {
-        Converto c;
+        ConversionHelper c;
 
 
         [TestMethod]
         public void RGBToHex_ActuallyReturnsTheProperHexCode_ForWhenAllValuesAre255()
         {
-            c = new Converto();
+            c = new ConversionHelper();
 
             Assert.AreEqual("#FFF", c.RGBToHex(255, 255, 255));
         }
