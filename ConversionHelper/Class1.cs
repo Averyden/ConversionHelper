@@ -72,9 +72,7 @@ namespace ConversionHelperLibrary
                 blue = Convert.ToInt32($"{hexCode[5]}{hexCode[6]}", 16);
             }
 
-            string output = $"({red}, {green}, {blue})";
-
-            return output;
+            return $"({red}, {green}, {blue})";
         }
 
     }
