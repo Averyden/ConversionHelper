@@ -94,7 +94,7 @@
                 throw new ArgumentOutOfRangeException("Invalid HSL values. \nMake sure the hue value is between 0 and 360, meanwhile the saturation and lightness should both be from 0 to 1.");
             }
 
-            double c = (1 - Math.Abs(2 * lightness)) * saturation;
+            double c = (1 - Math.Abs(2 * lightness - 1)) * saturation;
             double x = c * (1 - Math.Abs((hue / 60) % 2 - 1));
             double m = lightness - c / 2;
 
