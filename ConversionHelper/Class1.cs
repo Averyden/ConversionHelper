@@ -53,7 +53,7 @@ namespace ConversionHelperLibrary
                 hexCode = $"#{hexCode}"; // Yes i am petty by doing this, but fuck you!
             }
 
-            if (hexCode.Length != 4 || hexCode.Length != 7)
+            if (hexCode.Length != 4 && hexCode.Length != 7)
             {
                 throw new FormatException("Hex code must be in #RGB or #RRGGBB format, no inbetween.");
             }
