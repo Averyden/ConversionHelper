@@ -139,7 +139,13 @@
 
         public string FromBase64(string input) 
         {
-            
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new ArgumentNullException(nameof(input), "Input cannot be null or empty.");
+            }
+
+            byte[] bytes = Convert.FromBase64String(input);
+            return System.Text.Encoding.UTF8.GetString(bytes);
         }
 
     }
