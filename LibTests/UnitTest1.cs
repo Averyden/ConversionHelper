@@ -1,3 +1,5 @@
+using ConversionHelper;
+
 namespace LibTests
 {
     [TestClass]
