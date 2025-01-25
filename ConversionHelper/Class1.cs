@@ -121,6 +121,51 @@
 
             return $"({(int)red}, {(int)green}, {(int)blue})";
         }
+
+
+        public string RGBtoHSL(int red, int green int blue)
+        {
+            if (!validRGBInput(red, green, blue))
+            {
+                throw new ArgumentOutOfRangeException("RGB values must be positive and must not exceed 255");
+            }
+
+            double r = red / 255;
+            double g = green / 255;
+            double b = blue / 255;
+
+            double max = Math.Max(r, Math.Max(g, b));
+            double min = Math.Min(r, Math.Min(g, b));
+            double delta = max - min;
+
+            double hue = 0;
+
+            if (delta != 0)
+            {
+                if (max == r)
+                {
+                    hue = 60 * (((g - b) / delta) % 6);
+                } else if (max == g)
+                {
+                    hue = 60 * (((b - r) / delta) % 6);
+                } else if (max == b) {
+                    hue = 60 * (((r - g) / delta) % 6);
+                }
+            }
+
+            if (hue < 0) hue += 360;
+
+            double light = (max + min) / 2;
+
+            double saturation = 0;
+
+            if (delta != 0)
+            {
+                saturation = delta / (1 - Math.Abs(2 * light - 1));
+            }
+
+            return $"({Math.Round(hue, 2)}, {Math.Round(saturation, 2)}, {Math.Round(light, 2)})";
+        }
         /* 
          * TODO: 
          * Add a RGB to HSL converter so its like the hex one where it goes both ways
