@@ -123,7 +123,7 @@
         }
 
 
-        public string RGBtoHSL(int red, int green int blue)
+        public string RGBtoHSL(int red, int green, int blue)
         {
             if (!validRGBInput(red, green, blue))
             {
