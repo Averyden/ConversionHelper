@@ -166,10 +166,7 @@
 
             return $"({Math.Round(hue, 2)}, {Math.Round(saturation, 2)}, {Math.Round(light, 2)})";
         }
-        /* 
-         * TODO: 
-         * Add a RGB to HSL converter so its like the hex one where it goes both ways
-         */
+        
         public string ToBase64(string input)
         {
             if (string.IsNullOrEmpty(input))
