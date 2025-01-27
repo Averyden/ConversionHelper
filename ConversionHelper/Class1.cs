@@ -190,5 +190,15 @@
             return System.Text.Encoding.UTF8.GetString(bytes);
         }
 
+        public string DecimalToBinary(int input)
+        {
+            /*
+            * TODO: 
+            * Find the old binary helper i made in tkinter a year back.
+            * Translate the logic from that program to C# and then make it function as intended here.
+            */
+            return "";
+        }
+
     }
 }
