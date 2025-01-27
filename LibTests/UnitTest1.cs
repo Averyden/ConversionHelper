@@ -44,7 +44,7 @@ namespace LibTests
 
         }
 
-        [TestMethod] 
+        [TestMethod]
         public void HexToRGBIsAbleToHandleEnteredHexValuesWithoutTheHashtagIntheFront()
         {
             c = new ConversionHelper();
@@ -78,7 +78,7 @@ namespace LibTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(FormatException))] 
+        [ExpectedException(typeof(FormatException))]
         public void HexToRGBErrorsOnInvalidFormatBecauseHexCodeIsTooShort()
         {
             c = new ConversionHelper();
@@ -208,6 +208,34 @@ namespace LibTests
             c = new ConversionHelper();
 
             c.HSLToRGB(180, 1, 1.1);
+        }
+
+        // RGB to HSL tests
+
+        [TestMethod]
+        public void RGBToHSLProperlyConvertsHSLValuesToRGBValues()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("(44, 1, 0.5)", c.RGBtoHSL(255, 187, 0));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RGBToHSLThrowsProperExceptionWhenInvalidRGBInputsAreGivenButValuesAreNegative()
+        {
+            c = new ConversionHelper();
+
+            c.RGBtoHSL(-1, 34, 126);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RGBToHSLThrowsProperExceptionWhenInvalidRGBInputsAreGivenButValuesAreAbove255()
+        {
+            c = new ConversionHelper();
+
+            c.RGBtoHSL(643, 34, 126);
         }
 
         // ToBase64 tests
