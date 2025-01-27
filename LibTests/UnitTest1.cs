@@ -303,5 +303,22 @@ namespace LibTests
 
             c.FromBase64("InvalidBase64$String");
         }
+
+        // Decimal to Binary tests
+        [TestMethod]
+        public void DecimalToBinaryMethodIsAbleToCorrectlyTranslateADecimalInputAndAlsoDetermineTheAmountOfBitsNeeded()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("01000001", c.DecimalToBinary(65));
+        }
+
+        [TestMethod]
+        public void DecimalToBinaryMethodIsAbleToCorrectlyTranslateADecimalInputAndAlsoDetermineTheAmountOfBitsNeeded2_DifferenceBeingABiggerDecimalInput()
+        {
+            c = new ConversionHelper();
+
+            Assert.AreEqual("110111110010", c.DecimalToBinary(3570));
+        }
     }
 }
