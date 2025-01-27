@@ -7,12 +7,11 @@ Mainly for practise, but also preventing future headaches if i ever had the trou
 # Current features
 ConversionHelper has the following features so far:
  - RGB to hex <-> hex to RGB
- - HSL to RGB
+ - HSL to RGB <-> RGB to HSL
  - Encoding a string in base64 <->  - Decoding a string from base64
 
 # Planned features
 ConversionHelper has the following features planned:
- - RGB to HSL
  - csv to JSON <-> JSON to csv
  - URL encoding and decoding
  - Decimal to binary <-> binary to decimal
